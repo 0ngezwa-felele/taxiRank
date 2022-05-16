@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container" x-data="{
+        totalFare:0.00,
+        passengers:0.00,
+        taxiFare:25.99,
+        limit:5,
+
+        totalFareBell:0.00,
+        passengersBell:0.00,
+        
+        totalFareNyanga:0.00,
+        passengersNyanga:0.00,
+
+        totalFarePaarl:0.00,
+        passengersPaarl:0.00,
+
+        totalFareAth:0.00,
+        passengersAth:0.00,
+
+        totalFareParow:0.00,
+        passengersParow:0.00,
+
+        totalFareDan:0.00,
+        passengersDan:0.00,
+
+        taxiTrips:0.00,
+        availTaxiBell:3,
+
+        
+       
+       
+    }">
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>
+
+    <table>
+        <tr>
+            <th>Depature</th>
+            <th>Destination</th>
+            <th>Passenger Actions</th>
+            <th>Taxi Trips</th>
+            <th>Taxi Fare</th>
+            <th>Total Fare</th>
+            <th>Taxi Avail</th>
+        </tr>
+        <tr>
+            <td>CapeTown</td>
+            <td>Belhar</td>
+            <td><button @click="passengers--">-</button>
+                <span x-text="passengers">0</span>                
+                <button @click="passengers++">+</button>
+            </td>
+            <td>
+                <button @click="taxiTrips++,availTaxiBell--,taxiFare*limit">Leave</button>
+                <span x-text="taxiTrips"></span>
+            </td>
+            <td>R25.95</td>
+            <td><span class=""
+                x-html="taxiFare <= 0 ? 'R0.00' : 'R' + taxiFare.toFixed(2)">0.00</span>
+            <td x-text="availTaxiBell"></td>
+
+
+        </tr>
+        <tr>
+            <td>CapeTown</td>
+            <td>Bellville</td>
+            <td><button @click="totalFareBell=22.95, passengersBell--">-</button>
+                <span x-text="passengersBell">0</span>                
+                <button @click="passengersBell++">+</button>
+            </td>
+            <td>
+                <button @click="">Leave</button>
+            </td>
+            <td> <span x-text="totalFareBell"></span> R22.95</td>
+            <td> <span x-text="totalFareBell"> R0.00</span></td>
+            <td>0</td>
+
+        </tr>
+        <tr>
+            <td>CapeTown</td>
+            <td>Nyanga</td>
+            <td><button @click="totalFareNyanga=12.95, passengersNyanga--">-</button>
+                <span x-text="passengersNyanga">0</span>                
+                <button @click="totalFareNyanga+=12.95, passengersNyanga++">+</button>
+            </td>
+            <td>
+                <button @click="">Leave</button>
+            </td>
+            <td>R12.95</td>
+            <td> <span x-text="totalFareNyanga"> R0.00</span></td>
+            <td>0</td>
+
+        </tr>
+        <tr>
+            <td>CapeTown</td>
+            <td>Paarl</td>
+            <td><button @click="totalFarePaarl=12.95, passengersPaarl--">-</button>
+                <span x-text="passengersPaarl">0</span>                
+                <button @click="totalFarePaarl+=12.95, passengersPaarl++">+</button>
+            </td>
+            <td>
+                <button @click="">Leave</button>
+            </td>
+            <td>R12.95</td>
+            <td> <span x-text="totalFarePaarl"> R0.00</span></td>
+            <td>0</td>
+
+        </tr>
+        <tr>
+            <td>CapeTown</td>
+            <td>Athlone</td>
+            <td><button @click="totalFareAth=15.95, passengersAth--">-</button>
+                <span x-text="passengersAth">0</span>                
+                <button @click="totalFareAth+=15.95, passengersAth++">+</button>
+            </td>
+            <td>
+                <button @click="">Leave</button>
+            </td>
+            <td>R15.95</td>
+            <td> <span x-text="totalFareAth"> R0.00</span></td>
+            <td>0</td>
+
+        </tr>
+        <tr>
+            <td>CapeTown</td>
+            <td>Parow</td>
+            <td><button @click="totalFareParow=14.95, passengersParow--">-</button>
+                <span x-text="passengersParow">0</span>                
+                <button @click="totalFareParow+=14.95, passengersParow++">+</button>
+            </td>
+            <td>
+                <button @click="">Leave</button>
+            </td>
+            <td>R14.50</td>
+            <td><span x-text="totalFareParow">R0.00</span></td>
+            <td>0</td>
+
+        </tr>
+        <tr>
+            <td>CapeTown</td>
+            <td>Danoon</td>
+            <td><button @click="totalFareDan=14.95, passengersDan--">-</button>
+                <span x-text="passengersDan">0</span>                
+                <button @click="totalFareDan+=14.95, passengersDan++">+</button>
+            </td>
+            <td>
+                <button @click="">Leave</button>
+            </td>
+            <td>R15.95</td>
+            <td><span x-text="totalFareDan">R0.00</span></td>
+            <td>0</td>
+
+        </tr>
+    </table>
+</div>
+</body>
+
+</html>
