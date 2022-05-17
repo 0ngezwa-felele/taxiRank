@@ -15,27 +15,39 @@
         passengers:0.00,
         taxiFare:25.99,
         limit:5,
+        taxiTrips:0.00,
+        availTaxiBel:3,
 
-        totalFareBell:0.00,
+        totalFareBell:22.99,
         passengersBell:0.00,
+        taxiTripsBell:0.00,
+        availTaxiBell:3,
         
-        totalFareNyanga:0.00,
+        totalFareNyanga:12.99,
         passengersNyanga:0.00,
+        taxiTripsNyanga:0.00,
+        availTaxiNyanga:3,
 
-        totalFarePaarl:0.00,
+        totalFarePaarl:12.95,
         passengersPaarl:0.00,
+        taxiTripsPaarl:0.00,
+        availTaxiPaarl:3,
 
-        totalFareAth:0.00,
+        totalFareAth:15.95,
         passengersAth:0.00,
+        taxiTripsAth:0.00,
+        availTaxiAth:3,
 
-        totalFareParow:0.00,
+        totalFareParow:14.50,
         passengersParow:0.00,
+        taxiTripsParow:0.00,
+        availTaxiParow:3,
 
         totalFareDan:0.00,
         passengersDan:0.00,
+        taxiTripsDan:0.00,
+        availTaxiDan:3,
 
-        taxiTrips:0.00,
-        availTaxiBell:3,
 
         
        
@@ -63,13 +75,13 @@
                 <button @click="passengers++">+</button>
             </td>
             <td>
-                <button @click="taxiTrips++,availTaxiBell--,taxiFare*limit">Leave</button>
+                <button @click="taxiTrips++,availTaxiBel--,taxiFare*limit">Leave</button>
                 <span x-text="taxiTrips"></span>
             </td>
             <td>R25.95</td>
             <td><span class=""
                 x-html="taxiFare <= 0 ? 'R0.00' : 'R' + taxiFare.toFixed(2)">0.00</span>
-            <td x-text="availTaxiBell"></td>
+            <td x-text="availTaxiBel"></td>
 
 
         </tr>
@@ -81,86 +93,93 @@
                 <button @click="passengersBell++">+</button>
             </td>
             <td>
-                <button @click="">Leave</button>
+                <button @click="taxiTripsBell++,availTaxiBell--,totalFareBell*limit">Leave</button>
+                <span x-text="taxiTripsBell"></span>
             </td>
-            <td> <span x-text="totalFareBell"></span> R22.95</td>
-            <td> <span x-text="totalFareBell"> R0.00</span></td>
-            <td>0</td>
+            <td> R22.95</td>
+            <td> <span x-text="totalFareBell <= 0 ? 'R0.00' : 'R' + totalFareBell.toFixed(2)"></span></td>
+            <td x-text="availTaxiBell"></td>
 
         </tr>
+
         <tr>
             <td>CapeTown</td>
             <td>Nyanga</td>
-            <td><button @click="totalFareNyanga=12.95, passengersNyanga--">-</button>
+            <td><button @click="passengersNyanga--">-</button>
                 <span x-text="passengersNyanga">0</span>                
-                <button @click="totalFareNyanga+=12.95, passengersNyanga++">+</button>
+                <button @click="passengersNyanga++">+</button>
             </td>
             <td>
-                <button @click="">Leave</button>
+                <button @click="taxiTripsNyanga++,availTaxiNyanga--,totalFareNyanga*limit">Leave</button>
+                <span x-text="taxiTripsNyanga"></span>
             </td>
-            <td>R12.95</td>
-            <td> <span x-text="totalFareNyanga"> R0.00</span></td>
-            <td>0</td>
+            <td> R12.95</td>
+            <td> <span x-text="totalFareNyanga <= 0 ? 'R0.00' : 'R' + totalFareNyanga.toFixed(2)"></span></td>
+            <td x-text="availTaxiNyanga"></td>
 
         </tr>
         <tr>
             <td>CapeTown</td>
             <td>Paarl</td>
-            <td><button @click="totalFarePaarl=12.95, passengersPaarl--">-</button>
+            <td><button @click="passengersPaarl--">-</button>
                 <span x-text="passengersPaarl">0</span>                
-                <button @click="totalFarePaarl+=12.95, passengersPaarl++">+</button>
+                <button @click="passengersPaarl++">+</button>
             </td>
             <td>
-                <button @click="">Leave</button>
+                <button @click="taxiTripsPaarl++,availTaxiPaarl--,totalFarePaarl*limit">Leave</button>
+                <span x-text="taxiTripsPaarl"></span>
             </td>
-            <td>R12.95</td>
-            <td> <span x-text="totalFarePaarl"> R0.00</span></td>
-            <td>0</td>
+            <td> R12.95</td>
+            <td> <span x-text="totalFarePaarl <= 0 ? 'R0.00' : 'R' + totalFarePaarl.toFixed(2)"></span></td>
+            <td x-text="availTaxiPaarl"></td>
 
         </tr>
         <tr>
             <td>CapeTown</td>
             <td>Athlone</td>
-            <td><button @click="totalFareAth=15.95, passengersAth--">-</button>
+            <td><button @click="passengersAth--">-</button>
                 <span x-text="passengersAth">0</span>                
-                <button @click="totalFareAth+=15.95, passengersAth++">+</button>
+                <button @click="passengersAth++">+</button>
             </td>
             <td>
-                <button @click="">Leave</button>
+                <button @click="taxiTripsAth++,availTaxiAth--,totalFareAth*limit">Leave</button>
+                <span x-text="taxiTripsAth"></span>
             </td>
-            <td>R15.95</td>
-            <td> <span x-text="totalFareAth"> R0.00</span></td>
-            <td>0</td>
+            <td> R22.95</td>
+            <td> <span x-text="totalFareAth <= 0 ? 'R0.00' : 'R' + totalFareAth.toFixed(2)"></span></td>
+            <td x-text="availTaxiAth"></td>
 
         </tr>
         <tr>
             <td>CapeTown</td>
             <td>Parow</td>
-            <td><button @click="totalFareParow=14.95, passengersParow--">-</button>
+            <td><button @click="totalFareParow=22.95, passengersParow--">-</button>
                 <span x-text="passengersParow">0</span>                
-                <button @click="totalFareParow+=14.95, passengersParow++">+</button>
+                <button @click="passengersParow++">+</button>
             </td>
             <td>
-                <button @click="">Leave</button>
+                <button @click="taxiTripsParow++,availTaxiParow--,totalFareParow*limit">Leave</button>
+                <span x-text="taxiTripsParow"></span>
             </td>
-            <td>R14.50</td>
-            <td><span x-text="totalFareParow">R0.00</span></td>
-            <td>0</td>
+            <td> R22.95</td>
+            <td> <span x-text="totalFareParow <= 0 ? 'R0.00' : 'R' + totalFareParow.toFixed(2)"></span></td>
+            <td x-text="availTaxiParow"></td>
 
         </tr>
         <tr>
             <td>CapeTown</td>
             <td>Danoon</td>
-            <td><button @click="totalFareDan=14.95, passengersDan--">-</button>
+            <td><button @click="totalFareDan=22.95, passengersDan--">-</button>
                 <span x-text="passengersDan">0</span>                
-                <button @click="totalFareDan+=14.95, passengersDan++">+</button>
+                <button @click="passengersDan++">+</button>
             </td>
             <td>
-                <button @click="">Leave</button>
+                <button @click="taxiTripsDan++,availTaxiDan--,totalFareDan*limit">Leave</button>
+                <span x-text="taxiTripsDan"></span>
             </td>
-            <td>R15.95</td>
-            <td><span x-text="totalFareDan">R0.00</span></td>
-            <td>0</td>
+            <td> R15.95</td>
+            <td> <span x-text="totalFareDan <= 0 ? 'R0.00' : 'R' + totalFareDan.toFixed(2)"></span></td>
+            <td x-text="availTaxiDan"></td>
 
         </tr>
     </table>
